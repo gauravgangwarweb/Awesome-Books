@@ -5,7 +5,7 @@
 import bookCardBuilder from './bookCardBuilder.js';
 import { getBooksDataFromLocalStorage, saveBooksDataToLocalStorage } from './utils.js';
 
-const addButton = document.querySelector('#add-data');
+const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
 
 const booksData = [];
@@ -26,8 +26,8 @@ const displayData = () => {
 
 displayData();
 
-addButton.addEventListener('click', () => {
-  // e.preventDefault();
+addBookForm.addEventListener('submit', (e) => {
+  e.preventDefault();
 
   const title = document.querySelector('#book-title');
   const author = document.querySelector('#author-name');
@@ -42,10 +42,13 @@ addButton.addEventListener('click', () => {
   if (!booksDataFromLocalStorage) {
     booksData.push(bookDetails);
     saveBooksDataToLocalStorage('books', booksData);
+    location.reload();
+    return;
   }
 
   booksDataFromLocalStorage.push(bookDetails);
   saveBooksDataToLocalStorage('books', booksDataFromLocalStorage);
+  location.reload();
 });
 
 document.addEventListener('click', (e) => {
