@@ -1,19 +1,33 @@
 /* eslint-disable linebreak-style */
-import bookCardBuilder from './bookCardBuilder';
-import { getBooksDataFromLocalStorage, saveBooksDataToLocalStorage } from './utils';
+/* eslint-disable import/extensions */
+
+import bookCardBuilder from './bookCardBuilder.js';
+import { getBooksDataFromLocalStorage, saveBooksDataToLocalStorage } from './utils.js';
 
 const addButton = document.querySelector('#add-data');
 const cardsDiv = document.querySelector('.book-author-collections');
 
+const booksData = [];
+const dataFromLocalStorage = getBooksDataFromLocalStorage();
+
 const displayData = () => {
   const booksData = getBooksDataFromLocalStorage();
+  if (!booksData) {
+    cardsDiv.innerHTML += '<p>No data to display</p>';
+    return;
+  }
+
   booksData.forEach((book) => {
     const bookCard = bookCardBuilder(book);
     cardsDiv.innerHTML += bookCard;
   });
 };
 
-addButton.addEventListener('click', () => {
+displayData();
+
+addButton.addEventListener('click', (e) => {
+  e.preventDefault();
+
   const title = document.querySelector('#book-title');
   const author = document.querySelector('#author-name');
 
@@ -22,6 +36,11 @@ addButton.addEventListener('click', () => {
     author: author.value,
   };
 
-  const booksData = [...getBooksDataFromLocalStorage(), ...bookDetails];
-  saveBooksDataToLocalStorage(booksData);
+  if (!dataFromLocalStorage) {
+    booksData.push(bookDetails);
+    saveBooksDataToLocalStorage(booksData);
+  }
+
+  dataFromLocalStorage.push(bookDetails);
+  saveBooksDataToLocalStorage(dataFromLocalStorage);
 });
