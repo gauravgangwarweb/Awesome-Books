@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-restricted-globals */
 /* eslint-disable import/extensions */
 
 import bookCardBuilder from './bookCardBuilder.js';
@@ -19,19 +20,21 @@ const displayData = () => {
 
   booksData.forEach((book) => {
     const bookCard = bookCardBuilder(book);
-    cardsDiv.innerHTML += bookCard;
+    cardsDiv.insertAdjacentHTML('afterbegin', bookCard);
   });
 };
 
 displayData();
 
-addButton.addEventListener('click', (e) => {
-  e.preventDefault();
+addButton.addEventListener('click', () => {
+  // e.preventDefault();
 
   const title = document.querySelector('#book-title');
   const author = document.querySelector('#author-name');
+  const cardId = title.value.split(' ').join('').toLowerCase();
 
   const bookDetails = {
+    id: cardId,
     title: title.value,
     author: author.value,
   };
@@ -43,4 +46,16 @@ addButton.addEventListener('click', (e) => {
 
   booksDataFromLocalStorage.push(bookDetails);
   saveBooksDataToLocalStorage('books', booksDataFromLocalStorage);
+});
+
+document.addEventListener('click', (e) => {
+  const isRemoveBtn = document.querySelector('[data-remove-btn]');
+
+  if (isRemoveBtn) {
+    const card = e.target.closest('.book-author--card');
+    const cardId = card.getAttribute('id');
+    const newData = booksDataFromLocalStorage.filter((book) => book.id !== cardId);
+    saveBooksDataToLocalStorage('books', newData);
+    location.reload();
+  }
 });
