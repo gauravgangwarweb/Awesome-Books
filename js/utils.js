@@ -5,3 +5,5 @@
 export const saveBooksDataToLocalStorage = (data) => {
   localStorage.setItem('books', JSON.stringify(data));
 };
+
+export const getBooksDataFromLocalStorage = () => JSON.parse(localStorage.getItem('books'));
