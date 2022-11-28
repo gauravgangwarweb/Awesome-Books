@@ -58,8 +58,8 @@ document.addEventListener('click', (e) => {
   if (isRemoveBtn) {
     const card = e.target.closest('.book-author--card');
     const cardId = card.getAttribute('id');
-    const newData = booksDataFromLocalStorage.filter((book) => book.id !== cardId);
-    saveBooksDataToLocalStorage('books', newData);
+    const updatedData = booksDataFromLocalStorage.filter((book) => book.id !== cardId);
+    saveBooksDataToLocalStorage('books', updatedData);
     location.reload();
   }
 });
