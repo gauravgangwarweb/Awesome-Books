@@ -8,7 +8,6 @@ import { getBooksDataFromLocalStorage, saveBooksDataToLocalStorage } from './uti
 const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
 
-const booksData = [];
 const booksDataFromLocalStorage = getBooksDataFromLocalStorage('books');
 
 const displayData = () => {
@@ -40,14 +39,16 @@ addBookForm.addEventListener('submit', (e) => {
   };
 
   if (!booksDataFromLocalStorage) {
+    const booksData = [];
     booksData.push(bookDetails);
     saveBooksDataToLocalStorage('books', booksData);
     location.reload();
     return;
   }
 
-  booksDataFromLocalStorage.push(bookDetails);
-  saveBooksDataToLocalStorage('books', booksDataFromLocalStorage);
+  const newData = [...booksDataFromLocalStorage];
+  newData.push(bookDetails);
+  saveBooksDataToLocalStorage('books', newData);
   location.reload();
 });
 
