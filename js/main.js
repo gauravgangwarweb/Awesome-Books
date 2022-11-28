@@ -8,10 +8,10 @@ const addButton = document.querySelector('#add-data');
 const cardsDiv = document.querySelector('.book-author-collections');
 
 const booksData = [];
-const dataFromLocalStorage = getBooksDataFromLocalStorage();
+const dataFromLocalStorage = getBooksDataFromLocalStorage('books');
 
 const displayData = () => {
-  const booksData = getBooksDataFromLocalStorage();
+  const booksData = getBooksDataFromLocalStorage('books');
   if (!booksData) {
     cardsDiv.innerHTML += '<p>No data to display</p>';
     return;
@@ -38,9 +38,9 @@ addButton.addEventListener('click', (e) => {
 
   if (!dataFromLocalStorage) {
     booksData.push(bookDetails);
-    saveBooksDataToLocalStorage(booksData);
+    saveBooksDataToLocalStorage('books', booksData);
   }
 
   dataFromLocalStorage.push(bookDetails);
-  saveBooksDataToLocalStorage(dataFromLocalStorage);
+  saveBooksDataToLocalStorage('books', dataFromLocalStorage);
 });
