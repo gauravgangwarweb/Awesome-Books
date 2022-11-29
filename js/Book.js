@@ -12,6 +12,10 @@ class Book {
     return JSON.parse(localStorage.getItem(this.#DATA_KEY));
   }
 
+  #saveBooksDataToLocalStorage(data) {
+    localStorage.setItem(this.#DATA_KEY, JSON.stringify(data));
+  }
+
   static addBookToStorage(bookDetails) {
     const { bookTitle, bookAuthor } = bookDetails;
     console.log('Adding books to storage', bookTitle, bookAuthor);
