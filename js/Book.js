@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 class Book {
-  static #dataKey = 'books';
+  static #DATA_KEY = 'books';
 
   constructor(bookId, bookTitle, bookAuthor) {
     this.bookId = bookId;
@@ -9,7 +9,7 @@ class Book {
   }
 
   static #getBooksDataFromLocalStorage() {
-    return JSON.parse(localStorage.getItem(this.#dataKey));
+    return JSON.parse(localStorage.getItem(this.#DATA_KEY));
   }
 
   static addBookToStorage(bookDetails) {
