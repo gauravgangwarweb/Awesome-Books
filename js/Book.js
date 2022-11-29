@@ -1,14 +1,25 @@
 /* eslint-disable linebreak-style */
 class Book {
+  static #dataKey = 'books';
+
   constructor(bookId, bookTitle, bookAuthor) {
     this.bookId = bookId;
     this.bookTitle = bookTitle;
     this.bookAuthor = bookAuthor;
   }
 
+  static #getBooksDataFromLocalStorage() {
+    return JSON.parse(localStorage.getItem(this.#dataKey));
+  }
+
   static addBookToStorage(bookDetails) {
     const { bookTitle, bookAuthor } = bookDetails;
     console.log('Adding books to storage', bookTitle, bookAuthor);
+    // Check to see wether it is the first time of adding book to local storage
+    // If it is the first time, push the book into a local arrray, and save the array into 
+    // local storage
+    // Else, copy data from local storage into new array and push the new data into 
+    // the array. Aterwards, push the array to local storage.
   }
 
   static removeBookFromStorage(bookId) {
