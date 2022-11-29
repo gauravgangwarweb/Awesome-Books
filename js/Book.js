@@ -1,6 +1,8 @@
 /* eslint-disable linebreak-style */
 class Book {
-  #DATA_KEY = 'books';
+  static #DATA_KEY = 'books';
+
+  static #booksDataFromLocalStorage;
 
   constructor(bookId, bookTitle, bookAuthor) {
     this.bookId = bookId;
@@ -8,22 +10,30 @@ class Book {
     this.bookAuthor = bookAuthor;
   }
 
-  #getBooksDataFromLocalStorage() {
+  static #getBooksDataFromLocalStorage() {
     return JSON.parse(localStorage.getItem(this.#DATA_KEY));
   }
 
-  #saveBooksDataToLocalStorage(data) {
+  static #saveBooksDataToLocalStorage(data) {
     localStorage.setItem(this.#DATA_KEY, JSON.stringify(data));
   }
 
   static addBookToStorage(bookDetails) {
-    const { bookTitle, bookAuthor } = bookDetails;
-    console.log('Adding books to storage', bookTitle, bookAuthor);
-    // Check to see wether it is the first time of adding book to local storage
-    // If it is the first time, push the book into a local arrray, and save the array into 
-    // local storage
-    // Else, copy data from local storage into new array and push the new data into 
-    // the array. Aterwards, push the array to local storage.
+    console.log('Add book to storage...', bookDetails);
+    this.#booksDataFromLocalStorage = this.#getBooksDataFromLocalStorage();
+
+    if (!this.#booksDataFromLocalStorage) {
+      this.newData = [];
+      this.newData.push(bookDetails);
+      this.#saveBooksDataToLocalStorage(this.newData);
+      this.location.reload();
+      return;
+    }
+
+    this.updatedData = [...this.#getBooksDataFromLocalStorage()];
+    this.updatedData.push(bookDetails);
+    this.#saveBooksDataToLocalStorage(this.updatedData);
+    this.location.reload();
   }
 
   static removeBookFromStorage(bookId) {
