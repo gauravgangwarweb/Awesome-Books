@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 class Book {
-  constructor(bookTitle, bookAuthor) {
+  constructor(bookId, bookTitle, bookAuthor) {
+    this.bookId = bookId;
     this.bookTitle = bookTitle;
     this.bookAuthor = bookAuthor;
   }
