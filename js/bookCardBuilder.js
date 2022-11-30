@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 const bookCardBuilder = (data) => {
   const { bookId, bookTitle, bookAuthor } = data;
   const card = `

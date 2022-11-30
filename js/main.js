@@ -1,9 +1,6 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable import/extensions */
-
-import Book from './Book.js';
-import bookCardBuilder from './bookCardBuilder.js';
-import getUniqueIdentifier from './utils.js';
+import Book from './Book';
+import bookCardBuilder from './bookCardBuilder';
+import getUniqueIdentifier from './utils';
 
 const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
