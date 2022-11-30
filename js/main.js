@@ -10,7 +10,7 @@ const cardsDiv = document.querySelector('.book-author-collections');
 
 const displayData = () => {
   const booksData = Book.getStoredDataFromStorage;
-  if (!booksData) {
+  if (!booksData || booksData.length === 0) {
     cardsDiv.innerHTML += '<p>No data to display...</p>';
     return;
   }
