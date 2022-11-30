@@ -1,61 +1,60 @@
 .container {
-    width: 80%;
-    margin: 0 auto;
-  }
-  
-  .title {
-    text-align: center;
-  }
-  
-  .book-author-collections {
-    border: 1px solid #333;
-  }
-  
-  .book-author--card {
-    margin: 0 0.5em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .form-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2em;
-  }
-  
-  form {
-    width: 60%;
-    padding: 1em;
-  }
-  
-  .form-field {
-    margin: 0.5em 0;
-  }
-  
-  .form-field input {
-    width: calc(100% - 0.5em);
-    height: 35px;
-  }
-  
-  .btn-wrapper {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .btn {
-    width: fit-content;
-    min-width: 100px;
-    padding: 0.8em;
-  }
-  
-  .btn:hover {
-    cursor: pointer;
-  }
-  
-  .btn-remove {
-    padding: 0.4em;
-  }
-  
+  width: 80%;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.book-author-collections {
+  border: 1px solid #333;
+}
+
+.book-author--card {
+  margin: 0 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+form {
+  width: 60%;
+  padding: 1em;
+}
+
+.form-field {
+  margin: 0.5em 0;
+}
+
+.form-field input {
+  width: calc(100% - 0.5em);
+  height: 35px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  width: fit-content;
+  min-width: 100px;
+  padding: 0.8em;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-remove {
+  padding: 0.4em;
+}
