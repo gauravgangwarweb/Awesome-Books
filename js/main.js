@@ -9,7 +9,7 @@ const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
 
 const displayData = () => {
-  const booksData = Book.storedDataFromStorage;
+  const booksData = Book.getStoredDataFromStorage;
   if (!booksData) {
     cardsDiv.innerHTML += '<p>No data to display...</p>';
     return;
