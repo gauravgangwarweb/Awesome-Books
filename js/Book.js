@@ -18,6 +18,10 @@ class Book {
     localStorage.setItem(this.#DATA_KEY, JSON.stringify(data));
   }
 
+  static get storedDataFromStorage() {
+    return this.#getBooksDataFromLocalStorage();
+  }
+
   static addBookToStorage(bookDetails) {
     console.log('Add book to storage...', bookDetails);
     this.#booksDataFromLocalStorage = this.#getBooksDataFromLocalStorage();
@@ -26,18 +30,20 @@ class Book {
       this.newData = [];
       this.newData.push(bookDetails);
       this.#saveBooksDataToLocalStorage(this.newData);
-      this.location.reload();
+      // this.location.reload();
       return;
     }
 
     this.updatedData = [...this.#getBooksDataFromLocalStorage()];
     this.updatedData.push(bookDetails);
     this.#saveBooksDataToLocalStorage(this.updatedData);
-    this.location.reload();
+    // this.location.reload();
   }
 
   static removeBookFromStorage(bookId) {
-    console.log(`Book with id ${bookId} removed from local storage`);
+    const dataFromStore = this.#getBooksDataFromLocalStorage();
+    const updatedData = dataFromStore.filter((book) => book.bookId !== bookId);
+    this.#saveBooksDataToLocalStorage(updatedData);
   }
 }
 
