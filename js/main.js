@@ -1,9 +1,9 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable no-restricted-globals */
 /* eslint-disable import/extensions */
 
 import Book from './Book.js';
 import bookCardBuilder from './bookCardBuilder.js';
+import getUniqueIdentifier from './utils.js';
 
 const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
@@ -28,11 +28,11 @@ addBookForm.addEventListener('submit', (e) => {
 
   const title = document.querySelector('#book-title');
   const author = document.querySelector('#author-name');
-  const cardId = title.value.split(' ').join('').toLowerCase();
+  const cardId = getUniqueIdentifier();
 
   const newBookInstance = new Book(cardId, title.value, author.value);
   Book.addBookToStorage(newBookInstance);
-  location.reload();
+  window.location.reload();
 });
 
 document.addEventListener('click', (e) => {
@@ -42,6 +42,6 @@ document.addEventListener('click', (e) => {
     const card = e.target.closest('.book-author--card');
     const cardId = card.getAttribute('id');
     Book.removeBookFromStorage(cardId);
-    location.reload();
+    window.location.reload();
   }
 });
