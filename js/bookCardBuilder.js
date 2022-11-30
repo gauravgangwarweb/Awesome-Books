@@ -4,9 +4,9 @@ const bookCardBuilder = (data) => {
   const card = `
       <div class="book-author--card row" id="${bookId}">
         <div>
-          <p>${bookTitle} by ${bookAuthor}</p>
+          <p>"${bookTitle}" by ${bookAuthor}</p>
         </div>
-        <button type="button" class="btn btn-remove"  data-remove-btn>Remove</button>
+        <button type="button" class="btn btn-remove" data-remove-btn id="btnRemove">Remove</button>
       </div>
   `;
   return card;

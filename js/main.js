@@ -38,7 +38,7 @@ addBookForm.addEventListener('submit', (e) => {
 document.addEventListener('click', (e) => {
   const isRemoveBtn = document.querySelector('[data-remove-btn]');
 
-  if (isRemoveBtn) {
+  if (isRemoveBtn && e.target.closest('.book-author--card') && e.target.classList.contains('btn-remove')) {
     const card = e.target.closest('.book-author--card');
     const cardId = card.getAttribute('id');
     Book.removeBookFromStorage(cardId);
