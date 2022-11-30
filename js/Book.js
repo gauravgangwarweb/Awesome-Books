@@ -30,20 +30,21 @@ class Book {
       this.newData = [];
       this.newData.push(bookDetails);
       this.#saveBooksDataToLocalStorage(this.newData);
-      // this.location.reload();
+      window.location.reload();
       return;
     }
 
     this.updatedData = [...this.#getBooksDataFromLocalStorage()];
     this.updatedData.push(bookDetails);
     this.#saveBooksDataToLocalStorage(this.updatedData);
-    // this.location.reload();
+    window.location.reload();
   }
 
   static removeBookFromStorage(bookId) {
     const dataFromStore = this.#getBooksDataFromLocalStorage();
     const updatedData = dataFromStore.filter((book) => book.bookId !== bookId);
     this.#saveBooksDataToLocalStorage(updatedData);
+    window.location.reload();
   }
 }
 
