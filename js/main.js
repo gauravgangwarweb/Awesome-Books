@@ -1,6 +1,6 @@
-import Book from './Book';
-import bookCardBuilder from './bookCardBuilder';
-import getUniqueIdentifier from './utils';
+import Book from './Book.js';
+import bookCardBuilder from './bookCardBuilder.js';
+import getUniqueIdentifier from './utils.js';
 
 const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
