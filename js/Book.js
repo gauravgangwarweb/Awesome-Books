@@ -18,7 +18,7 @@ class Book {
     localStorage.setItem(this.#DATA_KEY, JSON.stringify(data));
   }
 
-  static get storedDataFromStorage() {
+  static get getStoredDataFromStorage() {
     return this.#getBooksDataFromLocalStorage();
   }
 
