@@ -1,11 +1,11 @@
-/* eslint-disable linebreak-style */
 const bookCardBuilder = (data) => {
-  const { id, title, author } = data;
+  const { bookId, bookTitle, bookAuthor } = data;
   const card = `
-      <div class="book-author--card" id="${id}">
-        <p>${title}</p>
-        <p>${author}</p>
-        <button type="button"  data-remove-btn>Remove</button>
+      <div class="book-author--card row" id="${bookId}">
+        <div>
+          <p>"${bookTitle}" by ${bookAuthor}</p>
+        </div>
+        <button type="button" class="btn btn-remove" data-remove-btn id="btnRemove">Remove</button>
       </div>
   `;
   return card;

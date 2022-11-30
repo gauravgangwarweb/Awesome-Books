@@ -1,18 +1,13 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-restricted-globals */
-/* eslint-disable import/extensions */
-
+import Book from './Book.js';
 import bookCardBuilder from './bookCardBuilder.js';
-import { getBooksDataFromLocalStorage, saveBooksDataToLocalStorage } from './utils.js';
+import getUniqueIdentifier from './utils.js';
 
 const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
 
-const booksDataFromLocalStorage = getBooksDataFromLocalStorage('books');
-
 const displayData = () => {
-  const booksData = getBooksDataFromLocalStorage('books');
-  if (!booksData) {
+  const booksData = Book.getStoredDataFromStorage;
+  if (!booksData || booksData.length === 0) {
     cardsDiv.innerHTML += '<p>No data to display...</p>';
     return;
   }
@@ -30,36 +25,20 @@ addBookForm.addEventListener('submit', (e) => {
 
   const title = document.querySelector('#book-title');
   const author = document.querySelector('#author-name');
-  const cardId = title.value.split(' ').join('').toLowerCase();
+  const cardId = getUniqueIdentifier();
 
-  const bookDetails = {
-    id: cardId,
-    title: title.value,
-    author: author.value,
-  };
-
-  if (!booksDataFromLocalStorage) {
-    const booksData = [];
-    booksData.push(bookDetails);
-    saveBooksDataToLocalStorage('books', booksData);
-    location.reload();
-    return;
-  }
-
-  const newData = [...booksDataFromLocalStorage];
-  newData.push(bookDetails);
-  saveBooksDataToLocalStorage('books', newData);
-  location.reload();
+  const newBookInstance = new Book(cardId, title.value, author.value);
+  Book.addBookToStorage(newBookInstance);
+  window.location.reload();
 });
 
 document.addEventListener('click', (e) => {
   const isRemoveBtn = document.querySelector('[data-remove-btn]');
 
-  if (isRemoveBtn) {
+  if (isRemoveBtn && e.target.closest('.book-author--card') && e.target.classList.contains('btn-remove')) {
     const card = e.target.closest('.book-author--card');
     const cardId = card.getAttribute('id');
-    const updatedData = booksDataFromLocalStorage.filter((book) => book.id !== cardId);
-    saveBooksDataToLocalStorage('books', updatedData);
-    location.reload();
+    Book.removeBookFromStorage(cardId);
+    window.location.reload();
   }
 });

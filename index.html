@@ -6,16 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awesome Books</title>
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-  <main>
-    <h1>Awesome Books</h1>
+  <main class="container">
+    <h1 class="title">All awesome books</h1>
     <section>
       <div class="book-author-collections">
         
       </div>
       <div class="form-wrapper">
+        <h2>Add a new book</h2>
         <form action="" class="" id="addBook">
           <div class="form-field">
             <label for="book-title" hidden></label>
@@ -25,8 +27,8 @@
             <label for="author-name" hidden></label>
             <input type="text" name="author-name" placeholder="Author" id="author-name" required>
           </div>
-          <div class="form-field">
-            <button type="submit" id="add-data">Add</button>
+          <div class="form-field btn-wrapper">
+            <button type="submit" id="add-data" class="btn btn-add">Add</button>
           </div>
         </form>
       </div>
