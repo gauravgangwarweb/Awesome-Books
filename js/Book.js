@@ -23,7 +23,6 @@ class Book {
   }
 
   static addBookToStorage(bookDetails) {
-    console.log('Add book to storage...', bookDetails);
     this.#booksDataFromLocalStorage = this.#getBooksDataFromLocalStorage();
 
     if (!this.#booksDataFromLocalStorage) {
