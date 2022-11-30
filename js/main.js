@@ -32,6 +32,7 @@ addBookForm.addEventListener('submit', (e) => {
 
   const newBookInstance = new Book(cardId, title.value, author.value);
   Book.addBookToStorage(newBookInstance);
+  location.reload();
 });
 
 document.addEventListener('click', (e) => {
@@ -41,5 +42,6 @@ document.addEventListener('click', (e) => {
     const card = e.target.closest('.book-author--card');
     const cardId = card.getAttribute('id');
     Book.removeBookFromStorage(cardId);
+    location.reload();
   }
 });
