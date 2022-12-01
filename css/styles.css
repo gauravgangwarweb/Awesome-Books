@@ -58,3 +58,26 @@ form {
 .btn-remove {
   padding: 0.4em;
 }
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 60%;
+  margin: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 2px solid black;
+}
+
+.nav-icons {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 1vw;
+}
+
+.nav-icons .hr {
+  height: 20px;
+  background-color: black;
+}
