@@ -134,7 +134,8 @@ footer {
   padding: 0 2.5em;
 }
 
-.form-wrapper, .contact-section {
+.form-wrapper,
+.contact-section {
   display: none;
 }
 
