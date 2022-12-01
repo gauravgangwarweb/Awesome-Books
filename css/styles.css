@@ -103,14 +103,17 @@ form {
 
 .nav-icons .hr1 {
   height: 20px;
-  width: 3px;
   background-color: black;
 }
 
 .nav-icons .hr2 {
   height: 20px;
-  width: 3px;
   background-color: black;
+}
+
+.date-time-wrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .contact-section {
@@ -137,8 +140,4 @@ footer {
 .form-wrapper,
 .contact-section {
   display: none;
-}
-
-.date {
-  text-align: right;
 }
