@@ -34,11 +34,33 @@ addBookForm.addEventListener('submit', (e) => {
 
 document.addEventListener('click', (e) => {
   const isRemoveBtn = document.querySelector('[data-remove-btn]');
+  const isNavItem = document.querySelector('.nav-item');
+  const booksCollection = document.querySelector('.book-author-collections');
+  const addForm = document.querySelector('.form-wrapper');
+  const contactSection = document.querySelector('.contact-section');
 
   if (isRemoveBtn && e.target.closest('.book-author--card') && e.target.classList.contains('btn-remove')) {
     const card = e.target.closest('.book-author--card');
     const cardId = card.getAttribute('id');
     Book.removeBookFromStorage(cardId);
     window.location.reload();
+  }
+
+  if (isNavItem && e.target.hasAttribute('data-list')) {
+    addForm.style.display = 'none';
+    contactSection.style.display = 'none';
+    booksCollection.style.display = 'block';
+  }
+
+  if (isNavItem && e.target.hasAttribute('data-add-new')) {
+    booksCollection.style.display = 'none';
+    contactSection.style.display = 'none';
+    addForm.style.display = 'flex';
+  }
+
+  if (isNavItem && e.target.hasAttribute('data-contact')) {
+    booksCollection.style.display = 'none';
+    addForm.style.display = 'none';
+    contactSection.style.display = 'flex';
   }
 });
