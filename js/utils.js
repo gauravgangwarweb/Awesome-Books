@@ -9,7 +9,7 @@ const getUniqueIdentifier = () => {
   });
 };
 
-export const displaySeection = (sectionName, displayType) => {
+export const handleSectionDisplay = (sectionName, displayType) => {
   sectionName.style.display = `${displayType}`;
   return true;
 };
