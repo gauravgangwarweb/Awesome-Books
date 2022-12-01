@@ -63,7 +63,7 @@ document.addEventListener('click', (e) => {
   if (isNavItem && e.target.hasAttribute('data-contact')) {
     handleSectionDisplay(booksCollection, 'none');
     handleSectionDisplay(addForm, 'none');
-    handleTitleChange(sectionTitle, 'Contect Information');
+    handleTitleChange(sectionTitle, 'Contact Information');
     handleSectionDisplay(contactSection, 'flex');
   }
 });
