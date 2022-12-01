@@ -13,6 +13,10 @@ main {
   margin: 0 auto;
 }
 
+.nav--active {
+  color: rgb(12, 116, 235);
+}
+
 .title {
   text-align: center;
   font-size: 2.5vw;
