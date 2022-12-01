@@ -1,6 +1,6 @@
 import Book from './Book.js';
 import bookCardBuilder from './bookCardBuilder.js';
-import getUniqueIdentifier, { handleSectionDisplay, handleTitleChange } from './utils.js';
+import getUniqueIdentifier, { handleActiveLink, handleSectionDisplay, handleTitleChange } from './utils.js';
 
 const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
@@ -48,14 +48,14 @@ document.addEventListener('click', (e) => {
   }
 
   if (isNavItem && e.target.hasAttribute('data-list')) {
-    document.querySelector('[data-list]').classList.add('nav--active');
+    handleActiveLink('data-list', 'data-add-new', 'data-contact');
     handleSectionDisplay(addForm, 'none');
     handleSectionDisplay(contactSection, 'none');
     handleSectionDisplay(booksCollection, 'block');
   }
 
   if (isNavItem && e.target.hasAttribute('data-add-new')) {
-    document.querySelector('[data-add-new]').classList.add('nav--active');
+    handleActiveLink('data-add-new', 'data-contact', 'data-list');
     handleSectionDisplay(booksCollection, 'none');
     handleSectionDisplay(contactSection, 'none');
     handleTitleChange(sectionTitle, 'Add a new book');
@@ -63,6 +63,7 @@ document.addEventListener('click', (e) => {
   }
 
   if (isNavItem && e.target.hasAttribute('data-contact')) {
+    handleActiveLink('data-contact', 'data-add-new', 'data-list');
     handleSectionDisplay(booksCollection, 'none');
     handleSectionDisplay(addForm, 'none');
     handleTitleChange(sectionTitle, 'Contact Information');
