@@ -14,4 +14,9 @@ export const displaySeection = (sectionName, displayType) => {
   return true;
 };
 
+export const handleTitleChange = (selector, text) => {
+  selector.style.innerText = `${text}`;
+  return true;
+};
+
 export default getUniqueIdentifier;
