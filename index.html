@@ -10,14 +10,27 @@
 </head>
 
 <body>
+  <header>
+    <nav class="nav-bar">
+      <h2>Awesome books</h2>
+      <ul class="nav-icons">
+        <li class="nav-item" data-list>List</li>
+        <hr class="hr1">
+        <li class="nav-item" data-add-new>Add new</li>
+        <hr class="hr2">
+        <li class="nav-item" data-contact>Contact</li>
+      </ul>
+    </nav>
+  </header>
+
   <main class="container">
+    <div class="date"></div>
     <h1 class="title">All awesome books</h1>
     <section>
-      <div class="book-author-collections">
-        
+      <div class="book-author-collections" id="list">
+
       </div>
-      <div class="form-wrapper">
-        <h2>Add a new book</h2>
+      <div class="form-wrapper" id="form">
         <form action="" class="" id="addBook">
           <div class="form-field">
             <label for="book-title" hidden></label>
@@ -33,7 +46,21 @@
         </form>
       </div>
     </section>
+    <section class="contact-section" id="contact">
+      <div class="contact-ins">
+        <p>Do have any questions or you just wnat to say "Hello" <br> You can reach out to us!</p>
+        <ul>
+          <li>Our e-mail: <span>gauravgangwar501@gmail.com & micheal@gamil.com</span></li>
+          <li>Our phone number +25478941664</li>
+          <li>Our address</li>
+        </ul>
+      </div>
+    </section>
   </main>
+  <footer>
+    <p>Copyright @ Awesome Books creators</p>
+  </footer>
   <script src="./js/main.js" type="module"></script>
 </body>
+
 </html>

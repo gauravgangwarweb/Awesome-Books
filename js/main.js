@@ -1,6 +1,6 @@
 import Book from './Book.js';
 import bookCardBuilder from './bookCardBuilder.js';
-import getUniqueIdentifier from './utils.js';
+import getUniqueIdentifier, { handleSectionDisplay, handleTitleChange } from './utils.js';
 
 const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
@@ -34,6 +34,11 @@ addBookForm.addEventListener('submit', (e) => {
 
 document.addEventListener('click', (e) => {
   const isRemoveBtn = document.querySelector('[data-remove-btn]');
+  const isNavItem = document.querySelector('.nav-item');
+  const booksCollection = document.querySelector('.book-author-collections');
+  const addForm = document.querySelector('.form-wrapper');
+  const contactSection = document.querySelector('.contact-section');
+  const sectionTitle = document.querySelector('.title');
 
   if (isRemoveBtn && e.target.closest('.book-author--card') && e.target.classList.contains('btn-remove')) {
     const card = e.target.closest('.book-author--card');
@@ -41,4 +46,30 @@ document.addEventListener('click', (e) => {
     Book.removeBookFromStorage(cardId);
     window.location.reload();
   }
+
+  if (isNavItem && e.target.hasAttribute('data-list')) {
+    handleSectionDisplay(addForm, 'none');
+    handleSectionDisplay(contactSection, 'none');
+    handleSectionDisplay(booksCollection, 'block');
+  }
+
+  if (isNavItem && e.target.hasAttribute('data-add-new')) {
+    handleSectionDisplay(booksCollection, 'none');
+    handleSectionDisplay(contactSection, 'none');
+    handleTitleChange(sectionTitle, 'Add a new book');
+    handleSectionDisplay(addForm, 'flex');
+  }
+
+  if (isNavItem && e.target.hasAttribute('data-contact')) {
+    handleSectionDisplay(booksCollection, 'none');
+    handleSectionDisplay(addForm, 'none');
+    handleTitleChange(sectionTitle, 'Contact Information');
+    handleSectionDisplay(contactSection, 'flex');
+  }
 });
+
+const dateDiv = document.querySelector('.date');
+const date = new Date();
+const day = date.toLocaleDateString();
+const Time = date.toLocaleTimeString();
+dateDiv.innerHTML = `${day} ${Time}`;

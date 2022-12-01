@@ -9,4 +9,14 @@ const getUniqueIdentifier = () => {
   });
 };
 
+export const handleSectionDisplay = (sectionName, displayType) => {
+  sectionName.style.display = `${displayType}`;
+  return true;
+};
+
+export const handleTitleChange = (selector, text) => {
+  selector.innerText = `${text}`;
+  return true;
+};
+
 export default getUniqueIdentifier;
