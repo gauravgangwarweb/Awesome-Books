@@ -15,7 +15,7 @@ export const handleSectionDisplay = (sectionName, displayType) => {
 };
 
 export const handleTitleChange = (selector, text) => {
-  selector.style.innerText = `${text}`;
+  selector.innerText = `${text}`;
   return true;
 };
 
