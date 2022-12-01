@@ -103,13 +103,11 @@ form {
 
 .nav-icons .hr1 {
   height: 20px;
-  /* width: 1%; */
   background-color: black;
 }
 
 .nav-icons .hr2 {
   height: 20px;
-  /* width: 1%; */
   background-color: black;
 }
 
@@ -139,6 +137,7 @@ footer {
   padding: 0 2.5em;
 }
 
-.form-wrapper, .contact-section {
+.form-wrapper,
+.contact-section {
   display: none;
 }
