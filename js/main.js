@@ -48,12 +48,14 @@ document.addEventListener('click', (e) => {
   }
 
   if (isNavItem && e.target.hasAttribute('data-list')) {
+    document.querySelector('[data-list]').classList.add('nav--active');
     handleSectionDisplay(addForm, 'none');
     handleSectionDisplay(contactSection, 'none');
     handleSectionDisplay(booksCollection, 'block');
   }
 
   if (isNavItem && e.target.hasAttribute('data-add-new')) {
+    document.querySelector('[data-add-new]').classList.add('nav--active');
     handleSectionDisplay(booksCollection, 'none');
     handleSectionDisplay(contactSection, 'none');
     handleTitleChange(sectionTitle, 'Add a new book');
