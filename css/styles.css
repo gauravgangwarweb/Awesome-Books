@@ -5,6 +5,7 @@
 
 .title {
   text-align: center;
+  font-size: 2.5vw;
 }
 
 .book-author-collections {
@@ -24,6 +25,10 @@
   justify-content: center;
   align-items: center;
   padding: 2em;
+}
+
+.form-wrapper h2 {
+  font-size: 2.5vw;
 }
 
 form {
@@ -63,7 +68,7 @@ form {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 60%;
+  gap: 50%;
   margin: auto;
   padding-top: 0;
   padding-bottom: 0;
@@ -75,10 +80,18 @@ form {
   list-style: none;
   align-items: center;
   gap: 1vw;
+  font-size: 1.2vw;
 }
 
-.nav-icons .hr {
+.nav-icons .hr1 {
   height: 20px;
+  /* width: 1%; */
+  background-color: black;
+}
+
+.nav-icons .hr2 {
+  height: 20px;
+  /* width: 1%; */
   background-color: black;
 }
 
@@ -86,8 +99,20 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .contact-section h2 {
   text-align: center;
+  font-size: 2.5vw;
+}
+
+.contact-ins {
+  font-size: 1.1vw;
+}
+
+footer {
+  border: 2px solid black;
+  display: flex;
+  padding-left: 20px;
 }
