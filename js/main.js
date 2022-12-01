@@ -67,3 +67,9 @@ document.addEventListener('click', (e) => {
     handleSectionDisplay(contactSection, 'flex');
   }
 });
+
+const dateDiv = document.querySelector('.date');
+const date = new Date();
+const day = date.toLocaleDateString();
+const Time = date.toLocaleTimeString();
+dateDiv.innerHTML = `${day} ${Time}`;

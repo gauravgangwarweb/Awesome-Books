@@ -5,7 +5,7 @@ body {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 78.5vh;
 }
 
 .container {
@@ -136,4 +136,8 @@ footer {
 
 .form-wrapper, .contact-section {
   display: none;
+}
+
+.date {
+  text-align: right;
 }
