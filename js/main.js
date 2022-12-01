@@ -1,6 +1,11 @@
 import Book from './Book.js';
 import bookCardBuilder from './bookCardBuilder.js';
-import getUniqueIdentifier, { handleActiveLink, handleSectionDisplay, handleTitleChange } from './utils.js';
+import getUniqueIdentifier, {
+  getDateAndTime,
+  handleActiveLink,
+  handleSectionDisplay,
+  handleTitleChange,
+} from './utils.js';
 
 const addBookForm = document.querySelector('#addBook');
 const cardsDiv = document.querySelector('.book-author-collections');
@@ -70,3 +75,6 @@ document.addEventListener('click', (e) => {
     handleSectionDisplay(contactSection, 'flex');
   }
 });
+
+const dateTimeWrapper = document.querySelector('.date-time-wrapper');
+dateTimeWrapper.innerText = getDateAndTime();
