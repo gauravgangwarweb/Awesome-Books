@@ -81,3 +81,13 @@ form {
   height: 20px;
   background-color: black;
 }
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-section h2 {
+  text-align: center;
+}
