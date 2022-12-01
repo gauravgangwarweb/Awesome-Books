@@ -113,6 +113,11 @@ form {
   background-color: black;
 }
 
+.date-time-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .contact-section {
   display: flex;
   flex-direction: column;
