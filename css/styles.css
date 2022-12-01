@@ -4,6 +4,10 @@ body {
   font-family: 'Nerko One', cursive;
 }
 
+main {
+  min-height: 100vh;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -81,6 +85,10 @@ form {
   border: 2px solid black;
 }
 
+.nav-item:hover {
+  cursor: pointer;
+}
+
 .nav-icons {
   display: flex;
   list-style: none;
@@ -119,6 +127,9 @@ form {
 
 footer {
   border: 2px solid black;
-  display: flex;
-  padding-left: 20px;
+  padding: 0 2.5em;
+}
+
+.form-wrapper, .contact-section {
+  display: none;
 }
